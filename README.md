@@ -10,6 +10,11 @@ using semantic embeddings and a locally hosted LLM via Ollama.
 - Grounded answers with source attribution
 - Interactive CLI
 
+Requires:
+- Ollama installed
+- Model: llama3.2 pulled locally
+
+
 ## How to Run
 ```bash
 python ingest.py
