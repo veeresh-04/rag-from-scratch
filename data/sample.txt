@@ -1,0 +1,29 @@
+Retrieval Augmented Generation (RAG) is a technique used in modern large language model systems to improve factual accuracy and reduce hallucinations.
+
+Traditional language models generate answers purely based on patterns learned during training. They do not have direct access to external documents or up-to-date knowledge at inference time. As a result, they may produce answers that sound confident but are incorrect or outdated.
+
+RAG solves this problem by combining two components: retrieval and generation.
+
+In the retrieval phase, the user’s query is converted into a vector embedding. This embedding is compared against embeddings of stored document chunks using similarity metrics such as cosine similarity. The most relevant chunks are retrieved from a vector store.
+
+In the generation phase, the retrieved chunks are inserted into the prompt as context. The language model is instructed to answer the question using only the provided context. This grounds the model’s response in factual information.
+
+A typical RAG pipeline consists of the following steps:
+1. Document ingestion and text extraction
+2. Chunking documents into smaller overlapping segments
+3. Converting chunks into vector embeddings
+4. Storing embeddings in a vector database
+5. Converting the user query into an embedding
+6. Retrieving the most similar chunks
+7. Constructing a prompt with retrieved context
+8. Generating the final answer using a language model
+
+Chunking plays a critical role in RAG performance. If chunks are too large, retrieval may include irrelevant information. If chunks are too small, important context may be lost. Overlapping chunks help preserve continuity between sections of text.
+
+Vector embeddings capture the semantic meaning of text rather than exact keyword matches. This allows RAG systems to retrieve relevant information even when the wording of the query differs from the document.
+
+One major advantage of RAG systems is transparency. By exposing retrieved chunks, developers can inspect which information influenced the final answer. This makes debugging and evaluation easier compared to black-box language model outputs.
+
+RAG is commonly used in applications such as document question answering, enterprise search, customer support bots, and knowledge assistants.
+
+Despite its advantages, RAG systems can still fail due to poor chunking strategies, low-quality embeddings, or weak prompt design. Careful tuning of each component is necessary for reliable performance.
